@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sorry Nishimiya</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #f0e8ff;
+        font-family: 'Roboto', sans-serif;
+        text-align: center;
+        padding-top: 20px;
+      }
+      img {
+        max-width: 80%;
+        height: auto;
+        border-radius: 10px; /* Optional: Rounds the corners of the image */
+        margin-bottom: 20px;
+      }
+      .heart {
+        color: #ff6060;
+        font-size: 48px;
+        font-family: 'Lobster', cursive;
+      }
+      .message {
+        font-size: 48px;
+        color: #333;
+        font-weight: bold;
+        font-family: 'Lobster', cursive;
+        white-space: pre-wrap;
+        overflow: hidden; /* Ensures the content is not revealed until the animation */
+        border-right: 0.15em solid orange; /* The typwriter cursor */
+        animation: typing 3.5s steps(30, end),
+          blink-caret 0.75s step-end infinite;
+      }
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+      @keyframes blink-caret {
+        from,
+        to {
+          border-color: transparent;
+        }
+        50% {
+          border-color: orange;
+        }
+      }
+      .apology-text {
+        margin-top: 20px;
+        color: #666;
+        font-size: 20px;
+        font-family: 'Lobster', cursive; /* Changed to Lobster */
+      }
+    </style>
+  </head>
+  <body>
+    <img src="nishimiya.jpg" alt="Nishimiya Image" />
+
+    <div class="message" id="typing-effect">
+      Sorry Nishimiya <span class="heart">&hearts;</span>
+    </div>
+    <div class="apology-text">
+      I deeply regret my mistake and hope for your forgiveness.
+    </div>
+
+    <script>
+      const text = 'Sorry Nishimiya ♥';
+      let index = 0;
+      const typingElement = document.getElementById('typing-effect');
+
+      function type() {
+        if (index < text.length) {
+          typingElement.innerHTML += text.charAt(index);
+          index++;
+          setTimeout(type, 150); // Adjust typing speed (ms)
+        }
+      }
+
+      // Start typing effect
+      window.onload = function () {
+        type();
+      };
+    </script>
+  </body>
+</html>
